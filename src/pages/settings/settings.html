@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Einstellungen
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary">Autostart:</ion-label>
+      <ion-toggle [(ngModel)]="toggleStatus" checked="true"></ion-toggle>
+    </ion-item>
+    <form [formGroup]="regForm">
+      <ion-item>
+        <ion-label color="primary">Server Adresse:</ion-label>
+        <ion-input formControlName="ServerIp" type="url" name="ServerIpTextfield"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <div text-center>
+          <button type=submit style="text-align: center" [disabled]=" !regForm.valid" ion-button
+                  (click)="saveChanges()">Speichern
+          </button>
+        </div>
+      </ion-item>
+    </form>
+  </ion-list>
+</ion-content>
+
+
+
+
