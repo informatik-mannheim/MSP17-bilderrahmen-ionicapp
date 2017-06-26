@@ -1,0 +1,27 @@
+=========================================================================
+==  NOTICE file corresponding to the section 4 d of                    ==
+==  the Apache License, Version 2.0,                                   ==
+==  in this case for the bilderrahmen distribution.                    ==
+=========================================================================
+
+This product includes software developed by
+The Apache Software Foundation (http://www.apache.org/).
+
+It includes the following other software:
+
+Angular under MIT License (https://angular.io/)
+Ionc under MIT License (https://ionicframework.com/)
+Ionic-Native under MIT License (https://ionicframework.com/docs/native/)
+Cordova under Apache License, Version 2.0 (https://cordova.apache.org/)
+RxJS under Apache License, Version 2.0 (https://github.com/Reactive-Extensions/RxJS)
+SockJS-client under MIT License (https://github.com/sockjs/sockjs-client)
+STOMP.js under Apache License, Version 2.0 (https://github.com/jmesnil/stomp-websocket)
+Service Worker Toolbox under Apache License, Version 2.0 (https://github.com/GoogleChrome/sw-toolbox)
+Websocket under Apache License, Version 2.0 (https://github.com/theturtle32/WebSocket-Node)
+zone.js under MIT License (https://github.com/angular/zone.js)
+TypeScript under Apache License, Version 2.0 (https://github.com/Microsoft/TypeScript)
+
+For licenses see the LICENSE file.
+
+If any software distributed with Gradle does not have an Apache 2 License, its license is explicitly listed in the
+LICENSE file.

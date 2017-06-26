@@ -1,0 +1,25 @@
+<ion-content class="fullscreen">
+  <h1 *ngIf="description">{{description}}</h1>
+  <div class="no-image-overlay" *ngIf="!images || images.length <= 0"><p>Es sind keine Bilder vorhanden. Bitte laden Sie
+    zuerst Bilder über das Web-Interface hoch.</p></div>
+  <ion-slides>
+    <ion-slide *ngFor="let image of images">
+      <img [hidden]="!initialized" [src]="image.nativeURL" [attr.data-img-name]="image.name"
+           style="height: 100%; width: 100%">
+    </ion-slide>
+  </ion-slides>
+  <ion-fab bottom right>
+    <button ion-fab (click)="settingsButtonClicked()" id="SettingsButton"
+            *ngIf="masterSelectionService.isMaster | async" class="control-button">
+      <ion-icon name="settings"></ion-icon>
+    </button>
+    <button ion-fab (click)="galleryButtonClicked()" id="GalleryButton"
+            *ngIf="masterSelectionService.isMaster | async" class="control-button">
+      <ion-icon name="images"></ion-icon>
+    </button>
+    <button ion-fab (click)="masterButtonClicked()" id="MasterButton"
+            [ngClass]="{'master': masterSelectionService.isMaster.value, 'control-button': true}">
+      <ion-icon [name]="buttonIcon"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

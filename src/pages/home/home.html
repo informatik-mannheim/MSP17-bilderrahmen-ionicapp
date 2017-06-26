@@ -1,0 +1,10 @@
+<ion-content class="background">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-3 *ngFor="let image of images; let i = index">
+        <img [src]="image.nativeURL" (click)="showSlide(i)" class="thumbnail">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
