@@ -65,7 +65,7 @@ export class SlidesPage {
           setTimeout(() => {
             this.showNewImagesToast();
             this.slideTo(this.images.length - 1);
-          }, 5000)
+          }, 2000)
         }
       }
     );
