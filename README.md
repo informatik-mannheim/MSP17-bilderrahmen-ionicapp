@@ -42,3 +42,15 @@ After completing the preceding steps successfully the application can be deploye
 ```bash
 $ ionic cordova build android && cordova run android --device
 ```
+
+## Troubleshooting
+
+### Error: Your android platform does not have Api.js
+
+If you get this error you should update your NodeJS installation and execute the following two commands:
+
+```bash
+ionic cordova remove android
+ionic cordova add android
+```
+
