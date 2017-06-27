@@ -14,14 +14,15 @@ To save images on the device you also have to grant permissions on the first sta
 ## Deployment
 To deploy the application on a device NodeJS is required which can be downloaded for different platforms [here](https://nodejs.org/en/).
 
-Additionally the *cordova-cli* and *ionic-cli* have to be installed with the following command:
+Additionally the *cordova-cli* and *ionic-cli* and all required dependencies have to be installed with the following commands
 
 ```bash
 $ sudo npm install -g ionic cordova
+$ npm install
 ```
 
 Depending on the target platform there are other setup steps necessary to deploy the application: [Android](https://cordova.apache.org/docs/en/latest/guide/platforms/android), [iOS](https://cordova.apache.org/docs/en/latest/guide/platforms/ios)
- 
+
 
 To start the application for the first time the target platform has to be added with either
 
