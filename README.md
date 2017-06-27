@@ -1,7 +1,7 @@
-# MSP17-bilderrahmen-ionic
+# MSP17-bilderrahmen-ionicapp
 
 ## General
-The bilderrahmen-ionic application is built with the open source framework [ionic](http://ionicframework.com/) to provide a cross-platform application.
+This repository is part of the ['Ich-Zeig-Dir-Was'-Bilderrahmen project](https://github.com/informatik-mannheim/bilderrahmen-msp17). The bilderrahmen-ionic application is built with the open source framework [ionic](http://ionicframework.com/) to provide a cross-platform application.
 
 To communicate with the synchronization server [STOMP.js](https://github.com/jmesnil/stomp-websocket) and [SockJS](https://github.com/sockjs/sockjs-client) are used.
 
