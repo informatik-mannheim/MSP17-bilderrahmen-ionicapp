@@ -30,7 +30,7 @@ export class AuthenticationService {
     return Observable.defer(() => this.googlePlus.login(this.authenticationOptions)).do(user => {
       this.user = user;
       this.keepAlive().subscribe((user) => {
-        console.log('user token refreshed', user)
+        console.log('user token refreshed', user);
       });
     });
   }

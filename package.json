@@ -1,8 +1,8 @@
 {
-    "name": "myApp",
-    "version": "0.0.1",
-    "author": "Ionic Framework",
-    "homepage": "http://ionicframework.com/",
+    "name": "bilderrahmen",
+    "version": "1.0",
+    "author": "MSP SS17",
+    "homepage": "https://github.com/informatik-mannheim/MSP17-bilderrahmen-ionicapp",
     "private": true,
     "scripts": {
         "clean": "ionic-app-scripts clean",

@@ -59,7 +59,6 @@ export class HomePage {
 
   private initializeMasterSubscription() {
     this.masterSelectionService.masterSubscribe().takeUntil(this.navCtrl.viewWillLeave).subscribe(selection => {
-      console.log('MASTER', selection);
       if (selection === this.device.uuid) {
         this.masterSelectionService.isMaster.next(true);
       }
@@ -71,7 +70,6 @@ export class HomePage {
   }
 
   showSlide(index) {
-    console.debug('show slide', index);
     this.navCtrl.push(SlidesPage, {
       slide: index
     });

@@ -47,9 +47,22 @@ export class SlidesPage {
   }
 
   ionViewDidEnter() {
-    this.initialize();
+    this.showInitialSlide();
+    this.initializeSwipeListeners();
     this.initializeMasterSubscription();
     this.initializeFileSyncSubscription();
+  }
+
+  private showInitialSlide() {
+    let slide = parseInt(this.navParams.get('slide'));
+    if (this.images && this.images[slide]) {
+      this.slideTo(slide);
+      let imageName = this.images[slide].name;
+      let imageID = imageName.split('_')[1];
+      if (this.masterSelectionService.isMaster.value) {
+        this.swipeService.swipe(imageID);
+      }
+    }
   }
 
   private reloadFiles(showLatest?: boolean) {
@@ -100,7 +113,6 @@ export class SlidesPage {
       this.setMasterPrivileges(isMaster);
     });
     this.masterSelectionService.masterSubscribe().takeUntil(this.navCtrl.viewWillLeave).subscribe(selection => {
-      console.log('MASTER', selection);
       if (selection === this.device.uuid) {
         this.masterSelectionService.isMaster.next(true);
       }
@@ -140,7 +152,6 @@ export class SlidesPage {
 
 
   private setMasterPrivileges(isMaster) {
-    console.debug('set master privileges', isMaster);
     this.slides.lockSwipes(!isMaster);
     if (isMaster) {
       this.buttonIcon = "unlock";
@@ -150,7 +161,7 @@ export class SlidesPage {
     }
   }
 
-  initialize() {
+  initializeSwipeListeners() {
     this.slides.ionSlideDidChange.takeUntil(this.navCtrl.viewWillLeave).subscribe(slides => {
       if (this.images && this.images[slides.realIndex]) {
         let imageName = this.images[slides.realIndex].name;
@@ -161,20 +172,16 @@ export class SlidesPage {
         this.loadDescriptionForImageName(imageName);
       }
     });
-    let slide = parseInt(this.navParams.get('slide'));
-    this.slideTo(slide);
-    this.initialized = true;
     this.swipeService.topicSubscribe().filter(() => !this.masterSelectionService.isMaster.value).takeUntil(this.navCtrl.viewWillLeave).subscribe(slide => {
-      console.log('SLIDED', slide);
       this.slideToImageWithId(slide);
     });
+    this.initialized = true;
   }
 
   private slideToImageWithId(id) {
     let counter = 0;
     for (let image of this.images) {
       if (image.name.includes(id)) {
-        console.log("found" + id);
         this.slideTo(counter, 300);
         return;
       }
@@ -183,7 +190,6 @@ export class SlidesPage {
   }
 
   masterButtonClicked() {
-    console.log("button clicked");
     this.masterSelectionService.masterSelection();
   }
 
@@ -206,8 +212,7 @@ export class SlidesPage {
         this.tokenService.url = serverip;
         if (!this.tokenService.token) {
           this.tokenService.loadToken().first().retry(2).subscribe(token => {
-            console.log('MyNew Token', token);
-            this.loadDescriptionForIndex(0)
+            this.loadDescriptionForIndex(0);
             this.webSocketService.initializeStompClient(serverip);
           });
         }
