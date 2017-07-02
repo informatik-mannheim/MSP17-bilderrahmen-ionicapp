@@ -36,6 +36,7 @@ or
 $ ionic cordova platform add ios
 ```
 
+To change the default value for the server's address in the settings, change [this line](https://github.com/informatik-mannheim/MSP17-bilderrahmen-ionicapp/blob/master/src/pages/settings/settings.ts#L27).
 
 After completing the preceding steps successfully the application can be deployed on a device with:
 

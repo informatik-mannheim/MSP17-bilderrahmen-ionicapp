@@ -24,7 +24,7 @@ export class SettingsModal {
 
 
   public ServerIp: AbstractControl;
-  private readonly defaultServer = 'https://felixhefner.de:8443';
+  private readonly defaultServer = 'https://example.com:8443';
   regForm: FormGroup;
 
   constructor(public platform: Platform,
